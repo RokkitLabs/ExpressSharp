@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpressSharp", "ExpressShar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{7382C202-DC7C-43A1-AE0B-3FD135319829}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressSharp.Tests", "ExpressSharp.Tests\ExpressSharp.Tests.csproj", "{B2B3541D-4BD2-48EF-8C39-E1540CEFB1A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7382C202-DC7C-43A1-AE0B-3FD135319829}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7382C202-DC7C-43A1-AE0B-3FD135319829}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7382C202-DC7C-43A1-AE0B-3FD135319829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2B3541D-4BD2-48EF-8C39-E1540CEFB1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B3541D-4BD2-48EF-8C39-E1540CEFB1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B3541D-4BD2-48EF-8C39-E1540CEFB1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B3541D-4BD2-48EF-8C39-E1540CEFB1A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

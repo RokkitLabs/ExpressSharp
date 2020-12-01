@@ -32,6 +32,7 @@ namespace ExpressSharp
 		{
 			byte[] buffer = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(obj));
 			_response.ContentLength64 = buffer.Length;
+			_response.ContentType = "application/json";
 			_response.OutputStream.Write(buffer);
 			return this;
 		}
