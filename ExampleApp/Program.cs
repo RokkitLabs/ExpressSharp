@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using ExpressSharp;
+using ExpressSharp.BodyParser;
+using ExpressSharp.BodyParser;
 namespace ExampleApp
 {
 	class Program
@@ -9,6 +11,7 @@ namespace ExampleApp
 		static void Main(string[] args)
 		{
 			Express server = new Express();
+			Type parser = BodyParser.Json;
 
 			server.GET("/", (req, res) =>
 			{
