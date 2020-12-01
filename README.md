@@ -1,5 +1,5 @@
 # 🌐 ExpressSharp
-[![BCH compliance](https://bettercodehub.com/edge/badge/EpicTestingTempOrganizationForStuff/ExpressSharp?branch=master)](https://bettercodehub.com/)
+[![BCH compliance](https://bettercodehub.com/edge/badge/EpicTestingTempOrganizationForStuff/ExpressSharp?branch=master)](https://bettercodehub.com/) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/EpicTestingTempOrganizationForStuff/ExpressSharp/.NET%20Core)
 # 👷 Installation
 ## Get it from Nuget
 [Latest](https://nuget.org)
