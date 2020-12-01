@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace ExpressSharp.Middleware
@@ -17,19 +18,18 @@ namespace ExpressSharp.Middleware
 
 
 		public MiddlewareHandler(Express express,
-			Request req,
-			Response res,
+			HttpListenerContext context,
 			Action<Request, Response> callback,  
 			List<Action<Request, Response, Action>> actions)
 		{
 			_callback = callback;
-			_req = req;
-			_res = res;
+			_req = new Request(context.Request);
+			_res = new Response(context.Response);
 			_actions = actions;
 			if (_actions.Count >= 1)
-				actions[0].Invoke(req, res, next);
+				actions[0].Invoke(_req, _res, next);
 			else
-				callback(req, res);
+				callback(_req, _res);
 		}
 
 		private void next()
