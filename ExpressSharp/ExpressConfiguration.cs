@@ -34,7 +34,13 @@ namespace ExpressSharp
 			server.Prefixes.Add(string.Format(baseUrl, _port));
 			server.Start();
 		}
-		public void Use(Action<Request, Response, Action> method) => actions.Add(method);
+		public void Use(Action<Request, Response, Action> method, bool first = false)
+		{
+			if (first)
+				actions.Insert(0, method);
+			else
+				actions.Add(method);
+		}
 		public void Bind(string path, Action<Request, Response> callback)
 		{
 			bindings.Add(path, callback);

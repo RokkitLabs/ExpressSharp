@@ -22,7 +22,14 @@ namespace ExpressSharp
 			_config.bindings = new Dictionary<string, Action<Request, Response>>();
 		}
 		public void Use(Action<Request, Response, Action> method) => _config.Use(method);
-
+		public void Use(Type bodyParser)
+		{
+			Action<Request, Response, Action> action = (req, res, next) =>
+			{
+				bodyParser.GetMethod("Parse").Invoke(null, new object[] { req, res, next });
+			};
+			_config.Use(action, true);
+		}
 		private void AcceptRequest(HttpListenerContext context)
 		{
 			HttpListenerResponse res = context.Response;
@@ -37,10 +44,6 @@ namespace ExpressSharp
 				res.OutputStream.Write(buffer);
 				return;
 			}
-
-			Request actualReq = new Request(req);
-			Response actualResponse = new Response(res);
-
 			MiddlewareHandler middleware = new MiddlewareHandler(this, context, callback, _config.actions);
 		}
 
@@ -55,12 +58,12 @@ namespace ExpressSharp
 				{
 					AcceptRequest(context);
 				}).Start();
-			}
 		}
-		public void GET(string path, Action<Request, Response> callback) => _config.Bind($"GET {path}", callback);
-		public void POST(string path, Action<Request, Response> callback) => _config.Bind($"POST {path}", callback);
-		public void PUT(string path, Action<Request, Response> callback) => _config.Bind($"PUT {path}", callback);
-		public void DELETE(string path, Action<Request, Response> callback) => _config.Bind($"DELETE {path}", callback);
-		public void PATCH(string path, Action<Request, Response> callback) => _config.Bind($"PATCH {path}", callback);
+			}
+		public void GET(string path Action<Request, Response> callback) => _config.Bind($"GET {path}", callback);
+		public void POST(string path Action<Request, Response> callback) => _config.Bind($"POST {path}", callback);
+		public void PUT(string path Action<Request, Response> callback) => _config.Bind($"PUT {path}", callback);
+		public void DELETE(string path Action<Request, Response> callback) => _config.Bind($"DELETE {path}", callback);
+		public void PATCH(string path Action<Request, Response> callback) => _config.Bind($"PATCH {path}", callback);
 	}
 }

@@ -3,11 +3,22 @@ using ExpressSharp;
 using Newtonsoft.Json;
 namespace ExpressSharp.BodyParser
 {
-	internal class Json : BodyParserTemplate
+	internal class Json
 	{ 
-		public override object Parse(string body)
+		public static void Parse(Request req, Response res, Action next)
 		{
-			return JsonConvert.DeserializeObject(body);
+			try
+			{
+				if (req.Body == null)
+					return;
+				Console.WriteLine(req.Body as string);
+				req.Body = JsonConvert.DeserializeObject(req.Body as string);
+				next();
+			}
+			catch
+			{
+				next();
+			}
 		}
 	}
 }
