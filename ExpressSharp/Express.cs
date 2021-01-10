@@ -26,7 +26,8 @@ namespace ExpressSharp
 		{
 			Action<Request, Response, Action> action = (req, res, next) =>
 			{
-				bodyParser.GetMethod("Parse").Invoke(null, new object[] { req, res, next });
+				bodyParser.GetMethod("Parse").Invoke(null, new object[] { req, res });
+				next();
 			};
 			_config.Use(action, true);
 		}

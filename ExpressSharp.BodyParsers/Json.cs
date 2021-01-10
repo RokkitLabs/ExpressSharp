@@ -5,7 +5,7 @@ namespace ExpressSharp.BodyParser
 {
 	internal class Json
 	{ 
-		public static void Parse(Request req, Response res, Action next)
+		public static void Parse(Request req, Response res)
 		{
 			try
 			{
@@ -13,11 +13,11 @@ namespace ExpressSharp.BodyParser
 					return;
 				Console.WriteLine(req.Body as string);
 				req.Body = JsonConvert.DeserializeObject(req.Body as string);
-				next();
+				return;
 			}
 			catch
 			{
-				next();
+				return;
 			}
 		}
 	}
