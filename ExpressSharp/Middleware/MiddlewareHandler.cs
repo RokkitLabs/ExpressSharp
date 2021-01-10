@@ -17,8 +17,7 @@ namespace ExpressSharp.Middleware
 		private int middlewarePos = 0;
 
 
-		public MiddlewareHandler(Express express,
-			HttpListenerContext context,
+		public MiddlewareHandler(HttpListenerContext context,
 			Action<Request, Response> callback,  
 			List<Action<Request, Response, Action>> actions)
 		{

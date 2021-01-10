@@ -44,7 +44,7 @@ namespace ExpressSharp
 				res.OutputStream.Write(buffer);
 				return;
 			}
-			MiddlewareHandler middleware = new MiddlewareHandler(this, context, callback, _config.actions);
+			MiddlewareHandler middleware = new MiddlewareHandler(context, callback, _config.actions);
 		}
 
 		public void Listen(ushort? port = null)
@@ -60,10 +60,10 @@ namespace ExpressSharp
 				}).Start();
 		}
 			}
-		public void GET(string path Action<Request, Response> callback) => _config.Bind($"GET {path}", callback);
-		public void POST(string path Action<Request, Response> callback) => _config.Bind($"POST {path}", callback);
-		public void PUT(string path Action<Request, Response> callback) => _config.Bind($"PUT {path}", callback);
-		public void DELETE(string path Action<Request, Response> callback) => _config.Bind($"DELETE {path}", callback);
-		public void PATCH(string path Action<Request, Response> callback) => _config.Bind($"PATCH {path}", callback);
+		public void GET(string path, Action<Request, Response> callback) => _config.Bind($"GET {path}", callback);
+		public void POST(string path, Action<Request, Response> callback) => _config.Bind($"POST {path}", callback);
+		public void PUT(string path, Action<Request, Response> callback) => _config.Bind($"PUT {path}", callback);
+		public void DELETE(string path, Action<Request, Response> callback) => _config.Bind($"DELETE {path}", callback);
+		public void PATCH(string path, Action<Request, Response> callback) => _config.Bind($"PATCH {path}", callback);
 	}
 }
