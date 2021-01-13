@@ -50,9 +50,6 @@ server.Listen(80);
 ```
 In this example you may notice the usage of `next()`, calling this function calls either the next middleware or the callback depending on whether it is the last middleware to be called, middleware is only called if the path exists as a binding.
 
-## 🥅 Goals
-* [ ] Usable
-
 ### ✨ Contributors
 
 <table>
