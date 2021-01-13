@@ -1,14 +1,14 @@
 # 🌐 ExpressSharp
 [![BCH compliance](https://bettercodehub.com/edge/badge/EpicTestingTempOrganizationForStuff/ExpressSharp?branch=master)](https://bettercodehub.com/) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/EpicTestingTempOrganizationForStuff/ExpressSharp/.NET%20Core)
-# 👷 Installation
-## Get it from Nuget
+## 👷 Installation
+### Get it from Nuget
 [Latest](https://nuget.org)
-## Download from releases
+### Download from releases
 [Latest](https://github.com/EpicTestingTempOrganizationForStuff/ExpressSharp/releases)
 
-# 🕴️ Usage
+## 🕴️ Usage
 
-## GET
+### GET
 The code below shows how to initialise an Express server, how to set up a callback to a path and how to send data back to the user.
 ```cs
 using ExpressSharp;
@@ -24,10 +24,10 @@ server.Listen(80);
 ```
 If you visit your browser at http://localhost/helloworld it should display "Hello, world!", this means that it is working successfully.
 
-## POST
+### POST
 TODO
 
-## Middleware
+### Middleware
 Middleware is code that is executed before your callback is executed, for example I will have a middleware which will just write "Im middleware" to the console when the user accesses a page, however, this can be used for other things such as authentication headers, to avoid repeating code within each callback.
 
 ```cs
@@ -50,10 +50,10 @@ server.Listen(80);
 ```
 In this example you may notice the usage of `next()`, calling this function calls either the next middleware or the callback depending on whether it is the last middleware to be called, middleware is only called if the path exists as a binding.
 
-# 🥅 Goals
+## 🥅 Goals
 * [ ] Usable
 
-## ✨ Contributors
+### ✨ Contributors
 
 <table>
   <tr>

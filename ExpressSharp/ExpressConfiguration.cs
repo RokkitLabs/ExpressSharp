@@ -13,9 +13,9 @@ namespace ExpressSharp
 
 		public string baseUrl = "http://*:{0}/"; //Base URL is required, this will be a wildcard so that we can dynamically set port when Listen is called.
 		public string baseHttpsUrl = "https://*:{0}/"; //Same as base URL but for https
-		public bool listening = false; //Set to false, HttpListener uses GetContext so we will have to loop and create new threads per request.
+		public bool listening; //Set to false, HttpListener uses GetContext so we will have to loop and create new threads per request.
 
-		public string? RootDir = null;
+		public string? RootDir;
 
 		private ushort _port = 3000; //UInt16 as that is the largest a port can be
 

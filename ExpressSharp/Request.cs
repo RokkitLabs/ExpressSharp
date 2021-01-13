@@ -20,9 +20,9 @@ namespace ExpressSharp
 			this.Body = body;
 		}
 
-		public string Header(string header) => _request.Headers.Get(header);
+		public string Header(string headerName) => _request.Headers.Get(headerName);
 
-		public string Param(string param)
+		public string Param(string paramName)
 		{
 			//TODO
 			return "";

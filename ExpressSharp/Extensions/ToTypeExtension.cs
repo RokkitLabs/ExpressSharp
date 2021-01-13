@@ -19,7 +19,9 @@ namespace ExpressSharp.Extensions
 				{
 					tmp.GetType().GetProperty(propertyInfo.Name)?.SetValue(tmp, propertyInfo.GetValue(obj, null));
 				}
-				catch { }
+				catch { 
+					//Shouldn't error but if it does don't halt whole program
+				}
 			}
 
 			return tmp;
