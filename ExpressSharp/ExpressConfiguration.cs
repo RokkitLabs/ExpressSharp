@@ -15,6 +15,8 @@ namespace ExpressSharp
 		public string baseHttpsUrl = "https://*:{0}/"; //Same as base URL but for https
 		public bool listening = false; //Set to false, HttpListener uses GetContext so we will have to loop and create new threads per request.
 
+		public string? RootDir = null;
+
 		private ushort _port = 3000; //UInt16 as that is the largest a port can be
 
 		public void SetPort(ushort? port)

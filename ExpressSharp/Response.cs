@@ -8,10 +8,11 @@ namespace ExpressSharp
 	public class Response
 	{
 		private readonly HttpListenerResponse _response;
-
-		public Response(HttpListenerResponse response)
+		private readonly ExpressConfiguration _config;
+		internal Response(HttpListenerResponse response, ExpressConfiguration config)
 		{
 			_response = response;
+			_config = config;
 		}
 
 		public Response Status(int code)

@@ -8,9 +8,7 @@ using System.Threading;
 
 [SetUpFixture]
 class GlobalSetup
-{
-    private Thread listenThread;
-
+{ 
     [OneTimeSetUp]
     public void Setup()
     {
@@ -26,16 +24,11 @@ class GlobalSetup
             res.Status(200).Json(new { Id = 300 });
         });
 
-        listenThread = new Thread(() =>
+        Thread listenThread = new Thread(() =>
         {
             server.Listen();
         });
 
         listenThread.Start();
     }
-
-    [OneTimeTearDown]
-    public void TearDown()
-	{
-	}
 }

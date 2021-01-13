@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ExpressSharp.BodyParser
 {
-	public class BodyParser
+	public static class BodyParser
 	{
-		public static Type Json = typeof(Json);
+		public readonly static Type Json = typeof(Json);
 	}
 }

@@ -8,12 +8,6 @@ namespace ExpressSharp.Tests
 	[TestFixture(TestName = "GET Tests")]
 	public class Get
 	{
-		[SetUp]
-		public void Setup()
-		{
-
-		}
-
 		public string StringFromResponseStream(Stream stream) => new StreamReader(stream).ReadToEnd();
 
 		[Test(Description = "Tests a standard GET request with plaintext return type")]

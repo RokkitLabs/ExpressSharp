@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExpressSharp.Exceptions
 {
-	class UnsupportedOperatingSystemException : Exception
+	public class UnsupportedOperatingSystemException : Exception
 	{
 	}
 }

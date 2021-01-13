@@ -3,7 +3,7 @@ using ExpressSharp;
 using Newtonsoft.Json;
 namespace ExpressSharp.BodyParser
 {
-	internal class Json
+	internal static class Json
 	{ 
 		public static void Parse(Request req, Response res)
 		{
@@ -11,12 +11,12 @@ namespace ExpressSharp.BodyParser
 			{
 				if (req.Body == null)
 					return;
-				Console.WriteLine(req.Body as string);
 				req.Body = JsonConvert.DeserializeObject(req.Body as string);
 				return;
 			}
 			catch
 			{
+				req.Body = null;
 				return;
 			}
 		}

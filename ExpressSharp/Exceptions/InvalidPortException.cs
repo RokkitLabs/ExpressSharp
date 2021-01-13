@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExpressSharp.Exceptions
 {
-	class InvalidPortException : Exception
+	public class InvalidPortException : Exception
 	{
 	}
 }

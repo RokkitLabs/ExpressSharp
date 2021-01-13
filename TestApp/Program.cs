@@ -1,5 +1,6 @@
 ﻿using System;
 using ExpressSharp;
+using ExpressSharp.Extensions;
 using ExpressSharp.BodyParser;
 using Newtonsoft.Json.Linq;
 namespace TestApp
@@ -19,7 +20,7 @@ namespace TestApp
 					res.Status(400).Send("Expected body");
 					return;
 				}
-				User user = ((JObject)req.Body).ToObject<User>();
+				User user = req.ToType<User>();
 
 				res.Send($"{user.Id} {user.Name}");
 			});

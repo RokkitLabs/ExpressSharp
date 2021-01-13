@@ -45,12 +45,11 @@ namespace ExpressSharp
 				res.OutputStream.Write(buffer);
 				return;
 			}
-			MiddlewareHandler middleware = new MiddlewareHandler(context, callback, _config.actions);
+			new MiddlewareHandler(context, callback, _config); ;
 		}
 
-		public void Listen(ushort? port = null)
+		public void Listen()
 		{
-			_config.SetPort(port);
 			_config.InitServer();
 			while (_config.listening)
 			{
@@ -59,8 +58,14 @@ namespace ExpressSharp
 				{
 					AcceptRequest(context);
 				}).Start();
-		}
 			}
+		}
+
+		public void Listen(ushort port)
+		{
+			_config.SetPort(port);
+			this.Listen();
+		}
 		public void GET(string path, Action<Request, Response> callback) => _config.Bind($"GET {path}", callback);
 		public void POST(string path, Action<Request, Response> callback) => _config.Bind($"POST {path}", callback);
 		public void PUT(string path, Action<Request, Response> callback) => _config.Bind($"PUT {path}", callback);
