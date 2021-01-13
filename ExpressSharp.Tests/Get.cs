@@ -22,7 +22,7 @@ namespace ExpressSharp.Tests
 		[Test(Description = "Tests a standard GET request with plaintext return type")]
 		public async Task PlainText()
 		{
-			HttpWebResponse response = await DoRequest("http://127.0.0.1:3000/PlainText");
+			HttpWebResponse response = await DoRequest("http://127.0.0.1:3000/PlainText").ConfigureAwait(false);
 
 			string body = StringFromResponseStream(response.GetResponseStream());
 
@@ -32,7 +32,7 @@ namespace ExpressSharp.Tests
 		[Test(Description = "Tests a standard GET request with JSON return type")]
 		public async Task Json()
 		{
-			HttpWebResponse response = await DoRequest("http://127.0.0.1:3000/Json");
+			HttpWebResponse response = await DoRequest("http://127.0.0.1:3000/Json").ConfigureAwait(false);
 
 			string body = StringFromResponseStream(response.GetResponseStream());
 
