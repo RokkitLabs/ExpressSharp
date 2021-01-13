@@ -10,20 +10,19 @@ namespace ExpressSharp.Tests
 	{
 		public string StringFromResponseStream(Stream stream) => new StreamReader(stream).ReadToEnd();
 
-		public HttpWebResponse DoRequest(string url)
+		public async Task<HttpWebResponse> DoRequest(string url)
 		{
 			WebRequest request = WebRequest.Create(url);
 			request.Method = "GET";
 			HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync().ConfigureAwait(false);
-
-			Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+			Assert.AreEqual(HttpStatusCode.OK,  response.StatusCode);
 			return response;
 		}
 
 		[Test(Description = "Tests a standard GET request with plaintext return type")]
 		public async Task PlainText()
 		{
-			HttpWebResponse response = DoRequest("http://127.0.0.1:3000/PlainText");
+			HttpWebResponse response = await DoRequest("http://127.0.0.1:3000/PlainText");
 
 			string body = StringFromResponseStream(response.GetResponseStream());
 
@@ -33,7 +32,7 @@ namespace ExpressSharp.Tests
 		[Test(Description = "Tests a standard GET request with JSON return type")]
 		public async Task Json()
 		{
-			HttpWebResponse response = DoRequest("http://127.0.0.1:3000/Json");
+			HttpWebResponse response = await DoRequest("http://127.0.0.1:3000/Json");
 
 			string body = StringFromResponseStream(response.GetResponseStream());
 
