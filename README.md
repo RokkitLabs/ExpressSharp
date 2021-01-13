@@ -1,4 +1,5 @@
 # 🌐 ExpressSharp
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf2357c6c3fd47b9ae75e45b22ad9b46)](https://app.codacy.com/gh/EpicTestingTempOrganizationForStuff/ExpressSharp?utm_source=github.com&utm_medium=referral&utm_content=EpicTestingTempOrganizationForStuff/ExpressSharp&utm_campaign=Badge_Grade)
 [![BCH compliance](https://bettercodehub.com/edge/badge/EpicTestingTempOrganizationForStuff/ExpressSharp?branch=master)](https://bettercodehub.com/) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/EpicTestingTempOrganizationForStuff/ExpressSharp/.NET%20Core)
 ## 👷 Installation
 ### Get it from Nuget
