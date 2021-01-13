@@ -29,7 +29,7 @@ If you visit your browser at http://localhost/helloworld it should display "Hell
 TODO
 
 ### Middleware
-Middleware is code that is executed before your callback is executed, for example I will have a middleware which will just write "Im middleware" to the console when the user accesses a page, however, this can be used for other things such as authentication headers, to avoid repeating code within each callback.
+Middleware is code that is executed before your callback is executed, This example will have a middleware which will just write "Im middleware" to the console when the user accesses a page, however, this can be used for other things such as authentication headers, to avoid repeating code within each callback.
 
 ```cs
 using ExpressSharp;
