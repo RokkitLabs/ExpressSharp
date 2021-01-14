@@ -6,7 +6,7 @@ namespace ExpressSharp.Handlers
 {
 	public class HeaderHandler
 	{
-		private HttpListenerRequest _request;
+		private readonly HttpListenerRequest _request;
 		internal HeaderHandler(HttpListenerRequest request)
 		{
 			_request = request;
