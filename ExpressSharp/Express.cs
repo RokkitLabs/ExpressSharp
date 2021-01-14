@@ -5,13 +5,16 @@ using System.Threading;
 using System.Text;
 using ExpressSharp.Middleware;
 using ExpressSharp.Exceptions;
-
+using ExpressSharp.Extensions;
 namespace ExpressSharp
 {
 	public class Express
 	{
 		private readonly ExpressConfiguration _config;
 
+		/// <summary>
+		/// Instantiatior for ExpressSharp Application
+		/// </summary>
 		public Express()
 		{
 			if (!HttpListener.IsSupported)
@@ -40,9 +43,7 @@ namespace ExpressSharp
 			if (!_config.bindings.TryGetValue($"{req.HttpMethod} {req.RawUrl}", out callback)) //Callback doesnt exist
 			{
 				res.StatusCode = 404;
-				byte[] buffer = Encoding.UTF8.GetBytes($"Cannot {req.HttpMethod} {req.RawUrl}");
-				res.ContentLength64 = buffer.Length;
-				res.OutputStream.Write(buffer);
+				res.SendString($"Cannot {req.HttpMethod} {req.RawUrl}");
 				return;
 			}
 			new MiddlewareHandler(context, callback, _config); ;

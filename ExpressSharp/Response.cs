@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Text;
+using ExpressSharp.Extensions;
 using Newtonsoft.Json;
 
 namespace ExpressSharp
@@ -23,18 +24,14 @@ namespace ExpressSharp
 
 		public Response Send(string data)
 		{
-			byte[] buffer = Encoding.UTF8.GetBytes(data);
-			_response.ContentLength64 = buffer.Length;
-			_response.OutputStream.Write(buffer);
+			_response.SendString(data);
 			return this;
 		}
 
 		public Response Json<T>(T obj)
 		{
-			byte[] buffer = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(obj));
-			_response.ContentLength64 = buffer.Length;
 			_response.ContentType = "application/json";
-			_response.OutputStream.Write(buffer);
+			_response.SendString(JsonConvert.SerializeObject(obj));
 			return this;
 		}
 
